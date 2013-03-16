@@ -1,0 +1,101 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     x:Class="Ushahidi.About"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+	<phone:PhoneApplicationPage.Resources>
+		<Color x:Key="dark">Black</Color>		
+		
+	</phone:PhoneApplicationPage.Resources>	
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <StackPanel x:Name="LayoutRoot">
+    	<StackPanel.Background>
+    		<ImageBrush Stretch="Fill" ImageSource="Ushahidi_Background.design_II.png"/>
+    	</StackPanel.Background>
+    
+
+      
+        <!--ContentPanel - place additional content here-->
+     
+    	<StackPanel   x:Name="TitlePanel_Copy"  Margin="0,100,0,12" Opacity="0.965" Height="Auto">
+    
+			
+			
+    		<StackPanel Orientation="Horizontal"/>
+    		<TextBlock  Style="{StaticResource PhoneTextNormalStyle}" Text="About" Margin="12,0,0,0" VerticalAlignment="Center" FontSize="{StaticResource PhoneFontSizeLarge}" FontFamily="Candara">
+    			<TextBlock.Foreground>
+    				<SolidColorBrush Color="{StaticResource DarkColor}"/>
+    			</TextBlock.Foreground>
+    		
+    		</TextBlock>
+    	</StackPanel>
+		<StackPanel x:Name="ContentPanel" Margin="12,0,12,0">
+			
+	</StackPanel>
+		<TextBlock x:Name="ApplicationTitle1_Copy" Style="{StaticResource PhoneTextNormalStyle}" Text="Ushahidi App for Windows Phone" Margin="12,0,12,12" VerticalAlignment="Center" FontSize="32" FontFamily="Segoe WP" d:LayoutOverrides="Width" TextWrapping="Wrap">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<TextBlock Height="37" Margin="12,0" TextWrapping="Wrap" Text="Version 1.0.0">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource SubtleRedMaroon}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<TextBlock Height="169" Margin="12,0" TextWrapping="Wrap" FontSize="20"><TextBlock.Foreground>
+				<SolidColorBrush Color="Black"/>
+			</TextBlock.Foreground><Run Text="This application is a Windows Phone mobile client for the "/><Run Text="Ushahidi"/><Run Text=" platform. "/><LineBreak/><Run Text="Ushahidi"/><Run Text=" is a web and mobile platform that allows you to create, visualize and share stories on a map. It allows individuals to share their stories on their own terms using the tools they already have"/></TextBlock>
+		<TextBlock  TextWrapping="Wrap" Text="Support:" VerticalAlignment="Top" Margin="12,0,36,4" d:LayoutOverrides="Width" FontSize="26.667">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<HyperlinkButton  Content="@Kigen"  x:Name="hyperlinkButton4" Width="auto" NavigateUri="http://twitter.com/kigen" TargetName="Twitter" HorizontalContentAlignment="Left" FontFamily="Segoe WP Light" Margin="0,0,24,12" d:LayoutOverrides="Width" Foreground="Black" />
+		<HyperlinkButton  Content="@Ushahidi"  x:Name="hyperlinkButton4_Copy" Width="auto" NavigateUri="http://twitter.com/ushahidi" TargetName="Twitter" HorizontalContentAlignment="Left" FontFamily="Segoe WP Light" Margin="0,0,24,12" Foreground="Black" d:LayoutOverrides="Width" />
+		<TextBlock  TextWrapping="Wrap" Text="Useful Links" VerticalAlignment="Top" Margin="12,0,36,4" FontSize="26.667" d:LayoutOverrides="Width">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<HyperlinkButton  Content="Ushahidi Community "  x:Name="hyperlinkButton4_Copy1" Width="auto" NavigateUri="http://community.ushahidi.com" TargetName="Twitter" HorizontalContentAlignment="Left" FontFamily="Segoe WP Light" Margin="0,0,24,12" Foreground="Black" d:LayoutOverrides="Width" />
+		<HyperlinkButton  Content="Official Site"  x:Name="hyperlinkButton4_Copy2" Width="auto" NavigateUri="http://ushahidi.com" TargetName="Twitter" HorizontalContentAlignment="Left" FontFamily="Segoe WP Light" Margin="0,0,24,12" Foreground="Black" d:LayoutOverrides="Width" />
+		<TextBlock  TextWrapping="Wrap" Text="Developed by:" VerticalAlignment="Top" Margin="12,0,36,2" d:LayoutOverrides="Width" FontSize="26.667">
+			<TextBlock.Foreground>
+				<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+			</TextBlock.Foreground>
+		</TextBlock>
+		<TextBlock  TextWrapping="Wrap" Text="Seth Kigen" VerticalAlignment="Top" Margin="12,0,36,0" d:LayoutOverrides="Width" FontSize="24" Foreground="Black"/>
+    </StackPanel>
+
+
+	
+</phone:PhoneApplicationPage>

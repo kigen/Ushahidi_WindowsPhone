@@ -1,0 +1,161 @@
+﻿<phone:PhoneApplicationPage
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Microsoft_Phone_Controls_Maps="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps" 
+	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+	x:Class="Ushahidi.MainPage"
+	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	shell:SystemTray.IsVisible="False" Loaded="PhoneApplicationPage_Loaded">
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
+ 
+	<!--Sample code showing usage of ApplicationBar-->
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar IsVisible="False" IsMenuEnabled="True" Opacity="0.5" ForegroundColor="{StaticResource WhiteColor}" BackgroundColor="{StaticResource DarkColor}"/>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Height="800">
+		<Grid.Background>
+			<ImageBrush Stretch="Uniform" ImageSource="Ushahidi_Background.design_II.png"/>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="800"/>
+		</Grid.RowDefinitions>
+
+		<controls:Pivot Title="" Margin="0,66,0,0" Background="{x:Null}" Name="MainPivot"  SelectionChanged="MainPivot_SelectionChanged">
+			<controls:Pivot.Foreground>
+				<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+			</controls:Pivot.Foreground>
+			<controls:PivotItem Header="Dashboard" Background="{x:Null}">
+				<StackPanel toolkit:TurnstileFeatherEffect.FeatheringIndex="1" >
+					<StackPanel toolkit:TiltEffect.IsTiltEnabled="True" Margin="8,0,8,6" Orientation="Horizontal" Tap="StackPanel_Tap">
+						<toolkit:HubTile Width="100" Height="100" IsFrozen="True" Source="icon.png" Size="Small">
+							<toolkit:HubTile.Background>
+								<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+							</toolkit:HubTile.Background>
+						</toolkit:HubTile>
+
+						<TextBlock Margin="12,19,0,20" TextWrapping="Wrap" Text="Ushahidi Maps" FontSize="{StaticResource PhoneFontSizeExtraLarge}" d:LayoutOverrides="Height" Width="298"/>
+					</StackPanel>
+					<StackPanel Margin="8,6" Orientation="Horizontal" Tap="StackPanel_Tap_4">
+						<toolkit:HubTile Width="100" Height="100" Source="/icons/appbar.feature.search.rest.png" Size="Small" DisplayNotification="True" Message="About">
+							<toolkit:HubTile.Background>
+								<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+							</toolkit:HubTile.Background>
+						</toolkit:HubTile>
+						<TextBlock Margin="12,16,0,11" TextWrapping="Wrap" Text="Search" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Width="260"/>
+					</StackPanel>
+					<StackPanel toolkit:TiltEffect.IsTiltEnabled="True" Margin="8,6" Orientation="Horizontal" d:LayoutOverrides="Width" Tap="StackPanel_Tap_1">
+
+						<toolkit:HubTile Source="appbar.add.png" Size="Small">
+							<toolkit:HubTile.Background>
+								<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+							</toolkit:HubTile.Background>
+						</toolkit:HubTile>
+						<TextBlock Margin="12,13,0,12" TextWrapping="Wrap" Text="Add Map" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Width="323"/>
+					</StackPanel>
+					<StackPanel  Margin="8,6" Orientation="Horizontal" Tap="StackPanel_Tap_2">
+						<toolkit:HubTile Width="100" Height="100" Source="appbar.settings.png" Size="Small">
+							<toolkit:HubTile.Background>
+								<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+							</toolkit:HubTile.Background>
+						</toolkit:HubTile>
+						<TextBlock Margin="12,11,0,16" TextWrapping="Wrap" Text="Settings" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Width="260"/>
+					</StackPanel>
+					<StackPanel Margin="8,6" Orientation="Horizontal" Tap="StackPanel_Tap_3">
+						<toolkit:HubTile Width="100" Height="100" Source="appbar.information.png" Size="Small" DisplayNotification="True" Message="About">
+							<toolkit:HubTile.Background>
+								<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+							</toolkit:HubTile.Background>
+						</toolkit:HubTile>
+						<TextBlock Margin="12,16,0,11" TextWrapping="Wrap" Text="About" FontSize="{StaticResource PhoneFontSizeExtraLarge}" Width="260"/>
+					</StackPanel>
+				</StackPanel>
+			</controls:PivotItem>
+			<controls:PivotItem Header="Deployments">
+				<StackPanel x:Name="ContentHolder" Height="600" Width="456">
+					<TextBox TextWrapping="NoWrap" AcceptsReturn="True" InputScope="Search" BorderThickness="1" FontSize="24" Name="SearchTextBlock" KeyUp="SearchTextBlock_KeyUp" Visibility="Collapsed">
+						<TextBox.Foreground>
+							<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+						</TextBox.Foreground>
+						<TextBox.BorderBrush>
+							<SolidColorBrush Color="{StaticResource DarkColor}"/>
+						</TextBox.BorderBrush>
+						<TextBox.Background>
+							<SolidColorBrush Color="{StaticResource WhiteColor}"/>
+						</TextBox.Background>
+					</TextBox>
+					<ListBox  Height="537"  x:Name="DeploymentsListBox" SelectionChanged="DeploymentsListBox_SelectionChanged">
+						<ListBox.ItemTemplate>
+							<DataTemplate >
+								<Grid Height="100" Width="460">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="0.59*"/>
+										<RowDefinition Height="0.41*"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="0.217*"/>
+										<ColumnDefinition Width="0.783*"/>
+									</Grid.ColumnDefinitions>
+									<toolkit:ContextMenuService.ContextMenu>
+										<toolkit:ContextMenu x:Name="MainMenuContext">
+											<toolkit:MenuItem Header="Edit" Click="MenuItem_Click"/>
+											<toolkit:MenuItem Header="Delete" Click="MenuItem_Click"/>
+										</toolkit:ContextMenu>
+
+									</toolkit:ContextMenuService.ContextMenu>
+									<toolkit:GestureService.GestureListener>
+										<toolkit:GestureListener />
+									</toolkit:GestureService.GestureListener>
+									<TextBlock Margin="8,0" Grid.Column="1" Text="{Binding name}" FontSize="40" TextTrimming="WordEllipsis">
+										<TextBlock.Foreground>
+											<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
+										</TextBlock.Foreground>
+
+									</TextBlock>
+									<Rectangle Grid.RowSpan="2" Margin="8" Width="84">
+										<Rectangle.Fill>
+											<ImageBrush Stretch="Uniform" ImageSource="icon.png"/>
+										</Rectangle.Fill>
+									</Rectangle>
+									<TextBlock Grid.Column="1" Margin="0,0,8,0" Grid.Row="1" Text="{Binding url}" HorizontalAlignment="Right" Width="344" TextTrimming="WordEllipsis">
+										<TextBlock.Foreground>
+											<SolidColorBrush Color="{StaticResource SubtleRedMaroon}"/>
+										</TextBlock.Foreground>
+
+									</TextBlock>
+								</Grid>
+							
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</StackPanel>
+			</controls:PivotItem>
+		</controls:Pivot>
+		<ProgressBar x:Name="ProgressBar" Height="19" Margin="8,161,8,0" VerticalAlignment="Top" IsIndeterminate="True" Visibility="Collapsed">
+			<ProgressBar.Foreground>
+				<SolidColorBrush Color="{StaticResource SubtleRedMaroon}"/>
+			</ProgressBar.Foreground>
+			<ProgressBar.Background>
+				<SolidColorBrush Color="{StaticResource WhiteColor}"/>
+			</ProgressBar.Background>
+		</ProgressBar>
+
+		<!--ContentPanel - place additional content here-->
+	</Grid>
+
+</phone:PhoneApplicationPage>
