@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Device.Location;
 
-namespace Ushahidi.Library
+namespace Ushahidi.Library.Data
 {
     public class Settings
     {

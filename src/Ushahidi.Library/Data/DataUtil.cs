@@ -4,9 +4,8 @@ using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Collections.Generic;
 using System.Linq;
-using Ushahidi.Library.Data;
 
-namespace Ushahidi.Library
+namespace Ushahidi.Library.Data
 {
     public class DataUtil
     {
@@ -37,25 +36,7 @@ namespace Ushahidi.Library
                 db.SubmitChanges(ConflictMode.ContinueOnConflict);
             }
             catch (ChangeConflictException e)
-            {
-                //For debugging.
-                System.Diagnostics.Debug.WriteLine("Optimistic concurrency error.");
-                System.Diagnostics.Debug.WriteLine(e.Message);
-                foreach (ObjectChangeConflict occ in db.ChangeConflicts)
-                {
-                    MetaTable metatable = db.Mapping.GetTable(occ.Object.GetType());
-                    System.Diagnostics.Debug.WriteLine("Table name: {0}", metatable.TableName);
-                    foreach (MemberChangeConflict mcc in occ.MemberConflicts)
-                    {
-                        object currVal = mcc.CurrentValue;
-                        object origVal = mcc.OriginalValue;
-                        object databaseVal = mcc.DatabaseValue;
-
-                        System.Diagnostics.Debug.WriteLine("current value: {0}", currVal);
-                        System.Diagnostics.Debug.WriteLine("original value: {0}", origVal);
-                        System.Diagnostics.Debug.WriteLine("database value: {0}", databaseVal);
-                    }
-                }
+            {             
 
                 foreach (ObjectChangeConflict occ in db.ChangeConflicts)
                 {
@@ -73,7 +54,10 @@ namespace Ushahidi.Library
         }
 
 
-        //Queries the database and returns the logged locations
+        /// <summary>
+        /// Get a list of all deployments
+        /// </summary>
+        /// <returns></returns>
         public List<Deployments> getAllDeployments()
         {
             dbMutex.WaitOne();
@@ -86,7 +70,10 @@ namespace Ushahidi.Library
 
         }
 
-
+        /// <summary>
+        /// Retrieve a list of DeploymentCategories
+        /// </summary>
+        /// <returns></returns>
         public List<DeploymentCategory> getDeploymentCategories()
         {
             List<DeploymentCategory> cats = (from q in db.DeploymentCategory
@@ -95,6 +82,10 @@ namespace Ushahidi.Library
             return cats;
         }
 
+        /// <summary>
+        /// Save a DeploymentCategory
+        /// </summary>
+        /// <param name="dcat"></param>
         public void SaveDeploymentCategory(DeploymentCategory dcat)
         {
             if (getDeploymentCategory(dcat.id)==null)
@@ -104,13 +95,18 @@ namespace Ushahidi.Library
             }
         }
 
-
+        /// <summary>
+        /// Enforce saving of all updates 
+        /// </summary>
         public void updateAll(){
             SaveChangesToDB();
            
         }
 
-
+        /// <summary>
+        /// Save a Deployment record
+        /// </summary>
+        /// <param name="deployments"></param>
         public void saveDeployment(Deployments deployments)
         {
             if (deployments.isLocal)
@@ -133,6 +129,10 @@ namespace Ushahidi.Library
             SaveChangesToDB();
         }
 
+        /// <summary>
+        /// Delete a single deployment record 
+        /// </summary>
+        /// <param name="d"></param>
         public void DeleteDeployment(Deployments d)
         {
 
@@ -146,7 +146,11 @@ namespace Ushahidi.Library
 
         }
 
-
+        /// <summary>
+        /// Retrive a DeploymentCategory by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
           public DeploymentCategory getDeploymentCategory(string id)
         {
             var deployment = from q in db.DeploymentCategory
@@ -161,6 +165,11 @@ namespace Ushahidi.Library
            
         }
 
+
+        /// <summary>
+        /// Retrieve count of categories 
+        /// </summary>
+        /// <returns></returns>
           public int CategoriesCount()
           {
               var deployment = from q in db.DeploymentCategory                               
@@ -168,7 +177,11 @@ namespace Ushahidi.Library
               return deployment.Count();
           }
 
-
+        /// <summary>
+        /// Retrieve a Deployment by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Deployments getDeployment(string id)
         {
             var deployment = from q in db.Deployment
