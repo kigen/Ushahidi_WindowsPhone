@@ -48,7 +48,7 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot">
 		<Grid.Background>
-			<ImageBrush Stretch="Fill" ImageSource="Ushahidi_Background.design_II.png"/>
+			<ImageBrush Stretch="Fill" ImageSource="Assets/Ushahidi_Background.design_II.png"/>
 		</Grid.Background>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="101"/>
@@ -88,7 +88,7 @@
 							<StackPanel Orientation="Horizontal" Margin="8,0" Height="41">
 								<Rectangle Margin="0" Width="46" RenderTransformOrigin="-6.652,0.583">
 									<Rectangle.Fill>
-										<ImageBrush Stretch="Uniform" ImageSource="appbar.location.round.png"/>
+										<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.location.round.png"/>
 									</Rectangle.Fill>
 								</Rectangle>
 								<TextBlock Text="{Binding incident.locationname}" Margin="0,0,8,0" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Width="379" Height="36" VerticalAlignment="Center" TextTrimming="WordEllipsis">
@@ -100,7 +100,7 @@
 							<StackPanel Orientation="Horizontal" Margin="8,0,0,0" Height="52">
 								<Rectangle Margin="0" Width="40" Height="40" VerticalAlignment="Center">
 									<Rectangle.Fill>
-										<ImageBrush Stretch="Uniform" ImageSource="appbar.calendar.png"/>
+										<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.calendar.png"/>
 									</Rectangle.Fill>
 								</Rectangle>
 								<TextBlock TextWrapping="Wrap" Text="{Binding incident.RelativeDate}" Margin="0,0,8,0" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Width="159" Height="36" VerticalAlignment="Center">
@@ -110,7 +110,7 @@
 								</TextBlock>
 								<Rectangle Margin="0" Width="40" Height="40" VerticalAlignment="Center">
 									<Rectangle.Fill>
-										<ImageBrush Stretch="Uniform" ImageSource="appbar.tag.png"/>
+										<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.tag.png"/>
 									</Rectangle.Fill>
 								</Rectangle>
 								<TextBlock TextWrapping="Wrap" Text="{Binding categories.Count}" Width="39" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Margin="0" VerticalAlignment="Center">
@@ -120,7 +120,7 @@
 								</TextBlock>
 								<Rectangle Margin="0" Width="40" Height="40" VerticalAlignment="Center">
 									<Rectangle.Fill>
-										<ImageBrush Stretch="Uniform" ImageSource="appbar.chat.png"/>
+										<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.chat.png"/>
 									</Rectangle.Fill>
 								</Rectangle>
 								<TextBlock TextWrapping="Wrap" Text="{Binding comments.Count}" Width="41" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Margin="0" VerticalAlignment="Center">
@@ -130,7 +130,7 @@
 								</TextBlock>
 								<Rectangle Margin="0" Width="40" Height="40" VerticalAlignment="Center">
 									<Rectangle.Fill>
-										<ImageBrush Stretch="Uniform" ImageSource="appbar.feature.camera.rest.png"/>
+										<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.feature.camera.rest.png"/>
 									</Rectangle.Fill>
 								</Rectangle>
 								<TextBlock TextWrapping="Wrap" Text="{Binding media.Count}" Width="48" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Margin="0" VerticalAlignment="Center">

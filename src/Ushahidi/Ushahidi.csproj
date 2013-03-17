@@ -142,29 +142,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="appbar.add.png" />
-    <Resource Include="appbar.calendar.png" />
-    <Resource Include="appbar.chat.png" />
-    <Resource Include="appbar.check.png" />
-    <Resource Include="appbar.checkmark.thick.png" />
-    <Resource Include="appbar.feature.camera.rest.png" />
-    <Resource Include="appbar.graph.bar.png" />
-    <Resource Include="appbar.information.circle.png" />
-    <Resource Include="appbar.information.png" />
-    <Resource Include="appbar.location.round.png" />
-    <Resource Include="appbar.page.bold.png" />
-    <Resource Include="appbar.settings.png" />
-    <Resource Include="appbar.tag.png" />
-    <Resource Include="Icon-Small.png" />
+    <Resource Include="icons\appbar.add.png" />
+    <Resource Include="icons\appbar.calendar.png" />
+    <Resource Include="icons\appbar.checkmark.thick.png" />
+    <Resource Include="icons\appbar.feature.camera.rest.png" />
+    <Resource Include="icons\appbar.graph.bar.png" />
+    <Resource Include="icons\appbar.information.png" />
+    <Resource Include="icons\appbar.page.bold.png" />
+    <Resource Include="icons\appbar.settings.png" />
+    <Resource Include="icons\appbar.tag.png" />
+    <Resource Include="icons\Icon-Small.png" />
+    <Resource Include="icons\appbar.chat.png" />
     <Content Include="icons\appbar.feature.search.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="icons\appbar.information.circle.png" />
     <Content Include="icons\appbar.list.png" />
+    <Resource Include="icons\appbar.location.round.png" />
     <Content Include="icons\appbar.map.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="icon.png" />
+    <Resource Include="icons\icon.png" />
     <Resource Include="Logo\Logo_173.png" />
     <Resource Include="Logo\Logo_200.png" />
     <Resource Include="Logo\Logo_62.png" />
@@ -182,10 +180,11 @@
     <Content Include="icons\appbar.save.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\appbar.settings.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ushahidi_Background.design_II.png" />
+    <Resource Include="Assets\Ushahidi_Background.design_II.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ushahidi.Library\Ushahidi.Library.csproj">

@@ -15,6 +15,7 @@ using Ushahidi.Library.Data;
 using Microsoft.Phone.Controls.Maps;
 using Ushahidi.Maps;
 using Microsoft.Phone.Shell;
+using System.Device.Location;
 
 namespace Ushahidi
 {
@@ -54,17 +55,17 @@ namespace Ushahidi
         {
             if (isMap)
             {
-             
-                IncidentListBox.Visibility = System.Windows.Visibility.Collapsed;
-                IncidentMap.Visibility = System.Windows.Visibility.Visible;
+
+                IncidentListBox.Visibility = System.Windows.Visibility.Visible;
+                IncidentMap.Visibility = System.Windows.Visibility.Collapsed;
                 mapViewButton.IconUri = new Uri("/icons/appbar.map.png", UriKind.Relative);
                 mapViewButton.Text = "map";
                 isMap = false;
             }
             else
             {
-                IncidentListBox.Visibility = System.Windows.Visibility.Visible;
-                IncidentMap.Visibility = System.Windows.Visibility.Collapsed;
+                IncidentListBox.Visibility = System.Windows.Visibility.Collapsed;
+                IncidentMap.Visibility = System.Windows.Visibility.Visible;
                 mapViewButton.IconUri = new Uri("/icons/appbar.list.png", UriKind.Relative);
                 mapViewButton.Text = "Reports";
                 isMap = true;
@@ -73,7 +74,7 @@ namespace Ushahidi
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
 
@@ -137,8 +138,26 @@ namespace Ushahidi
 
                 var clusterer = new PushpinClusterer(IncidentMap, pushpins,
                 this.Resources["ClusterTemplate"] as DataTemplate);
+                if (app.ActiveDeploymentIncidents.Count > 0)
+                {
+                    GeoCoordinate x1 = app.SelectedDeployment.Location;
+                    GeoCoordinate x2 = app.ActiveDeploymentIncidents[0].incident.Location;
+                    if (x1.GetDistanceTo(x2) > 100000)
+                    {
+                        IncidentMap.SetView(x2, 7);
+                    }
+                    else
+                    {
+                        IncidentMap.SetView(x1, 7);
+                    }
 
-                IncidentMap.SetView(app.SelectedDeployment.Location, 7);
+                }
+                else
+                {
+                    IncidentMap.SetView(app.SelectedDeployment.Location, 7);
+                }
+
+
             }
         }
 
@@ -153,6 +172,6 @@ namespace Ushahidi
 
         }
 
-        
+
     }
 }

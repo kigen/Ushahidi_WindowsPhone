@@ -55,6 +55,8 @@ namespace Ushahidi
 
         void loadPictures()
         {
+            //TODO: Addd a photo/media viewer.
+
             if (app.ActiveIncident.media.Count > 0)
             {
 
@@ -81,9 +83,12 @@ namespace Ushahidi
                 }
                 else
                 {
-                    MainLink.Visibility = System.Windows.Visibility.Visible;
-                   MainLink.Content=  app.ActiveIncident.media[0].link;
-                   MainLink.NavigateUri = new Uri(app.ActiveIncident.media[0].link, UriKind.Absolute);
+                    if (ValidateAndGetUri(app.ActiveIncident.media[0].link))
+                    {
+                        MainLink.Visibility = System.Windows.Visibility.Visible;
+                        MainLink.Content = "Link #1";
+                        MainLink.NavigateUri = new Uri(app.ActiveIncident.media[0].link, UriKind.Absolute);
+                    }
                 }
             }
             else

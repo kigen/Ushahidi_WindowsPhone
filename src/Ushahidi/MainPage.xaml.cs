@@ -236,7 +236,10 @@ namespace Ushahidi
 
                     if (app.IsAvailable)
                     {
-                        GoOnline();
+                        Dispatcher.BeginInvoke(() =>
+            {
+                GoOnline();
+            });
 
                     }
                     LoadedOnline = true;
@@ -254,6 +257,8 @@ namespace Ushahidi
         void SearchDeployments_DataDownloadCompleteWithError(object sender, DownloadCompleteArgs e)
         {
             Error error = e.DownloadObject as Error;
+            SearchTextBlock.Visibility = System.Windows.Visibility.Collapsed;
+            ProgressBar.Visibility = System.Windows.Visibility.Collapsed;
             MessageBox.Show(error.message, "Search Failed", MessageBoxButton.OK);
         }
 
@@ -266,7 +271,7 @@ namespace Ushahidi
                 App.DataBaseUtility.saveDeployment(d);
             }
             SearchTextBlock.Text = "";
-            SearchTextBlock.Visibility = System.Windows.Visibility.Visible;
+            SearchTextBlock.Visibility = System.Windows.Visibility.Collapsed;
             app.GlobalDeployments = dp;
             RefreshList();
 

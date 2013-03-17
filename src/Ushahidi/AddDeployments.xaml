@@ -38,7 +38,7 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot">
 		<Grid.Background>
-			<ImageBrush Stretch="Fill" ImageSource="Ushahidi_Background.design_II.png"/>
+			<ImageBrush Stretch="Fill" ImageSource="Assets/Ushahidi_Background.design_II.png"/>
 		</Grid.Background>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="102"/>

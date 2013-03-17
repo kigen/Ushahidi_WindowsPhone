@@ -32,7 +32,7 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource IncidentDataSource}}" >
 		<Grid.Background>
-			<ImageBrush Stretch="Uniform" ImageSource="Ushahidi_Background.design_II.png"/>
+            <ImageBrush Stretch="Uniform" ImageSource="Assets/Ushahidi_Background.design_II.png"/>
 		</Grid.Background>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="104"/>
@@ -52,7 +52,7 @@
 			<StackPanel Orientation="Horizontal" Margin="8,0">
 				<Rectangle Height="44" Width="47" VerticalAlignment="Center">
 					<Rectangle.Fill>
-						<ImageBrush Stretch="Fill" ImageSource="appbar.tag.png"/>
+						<ImageBrush Stretch="Fill" ImageSource="icons/appbar.tag.png"/>
 					</Rectangle.Fill>
 				</Rectangle>
 				<TextBlock TextWrapping="Wrap" Text="{Binding categories.Count}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="12,0,0,0" VerticalAlignment="Center" >
@@ -62,7 +62,7 @@
 				</TextBlock>
 				<Rectangle Height="44" Width="47" VerticalAlignment="Center">
 					<Rectangle.Fill>
-						<ImageBrush Stretch="Uniform" ImageSource="appbar.chat.png"/>
+						<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.chat.png"/>
 					</Rectangle.Fill>
 				</Rectangle>
 				<TextBlock TextWrapping="Wrap" Text="{Binding comments.Count, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="6,0,0,0" VerticalAlignment="Center">
@@ -72,7 +72,7 @@
 				</TextBlock>
 				<Rectangle Height="44" Width="47" VerticalAlignment="Center">
 					<Rectangle.Fill>
-						<ImageBrush Stretch="Uniform" ImageSource="appbar.feature.camera.rest.png"/>
+						<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.feature.camera.rest.png"/>
 					</Rectangle.Fill>
 				</Rectangle>
 				<TextBlock TextWrapping="Wrap" Text="{Binding media.Count}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="6,0,0,0" VerticalAlignment="Center">
@@ -82,7 +82,7 @@
 				</TextBlock>
 				<Rectangle Height="44" Width="47" RenderTransformOrigin="-5.085,0.659" Margin="12,0,0,0" VerticalAlignment="Center">
 					<Rectangle.Fill>
-						<ImageBrush Stretch="Uniform" ImageSource="appbar.calendar.png"/>
+						<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.calendar.png"/>
 					</Rectangle.Fill>
 				</Rectangle>
 				<TextBlock TextWrapping="Wrap" Text="{Binding incident.RelativeDate, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeMedium}" Width="217" Height="38" VerticalAlignment="Center">
@@ -109,7 +109,7 @@
 							<SolidColorBrush Color="{StaticResource DarkColor}"/>
 						</TextBlock.Foreground>			
 					</TextBlock>
-					<HyperlinkButton x:Name="MainLink" Content="" Margin="0,6,0,0" HorizontalAlignment="Left">
+                    <HyperlinkButton x:Name="MainLink" Content="Link #1" Margin="0,6,0,0" HorizontalAlignment="Left" Visibility="Collapsed">
 						<HyperlinkButton.Foreground>
 							<SolidColorBrush Color="{StaticResource DarkColor}"/>
 						</HyperlinkButton.Foreground>
@@ -124,7 +124,7 @@
 					<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" Margin="8,0">
 						<Rectangle Width="47">
 							<Rectangle.Fill>
-								<ImageBrush Stretch="Fill" ImageSource="appbar.calendar.png"/>
+								<ImageBrush Stretch="Fill" ImageSource="icons/appbar.calendar.png"/>
 							</Rectangle.Fill>
 						</Rectangle>
 
@@ -140,14 +140,14 @@
 
 			</ScrollViewer>
 		<maps:Map  Name="ReportMap" Height="379" CredentialsProvider="AkWSrd1jbnq4NirGeUs6hrFzS0o0PyyAgQsNMnr38MAnVEKPEMaUMFo6UBhKCL9V" Visibility="Collapsed" ZoomLevel="12" >
-			               <maps:Pushpin Content="{Binding incident.locationname}" Location="{Binding incident.Location}"/>
-          
-            </maps:Map>
+						   <maps:Pushpin Content="{Binding incident.locationname}" Location="{Binding incident.Location}"/>
+		  
+			</maps:Map>
 			
 		<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Width="440" Margin="0,0,8,0">
 			<Rectangle Width="47" RenderTransformOrigin="-5.085,0.659" Margin="0" Height="47">
 				<Rectangle.Fill>
-					<ImageBrush Stretch="Uniform" ImageSource="appbar.location.round.png"/>
+					<ImageBrush Stretch="Uniform" ImageSource="icons/appbar.location.round.png"/>
 				</Rectangle.Fill>
 			</Rectangle>
 			<TextBlock TextWrapping="Wrap" Text="{Binding incident.locationname}" FontSize="{StaticResource PhoneFontSizeMedium}" Width="390" VerticalAlignment="Bottom">

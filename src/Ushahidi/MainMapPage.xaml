@@ -12,7 +12,7 @@
 	FontSize="{StaticResource PhoneFontSizeNormal}"
 	Foreground="{StaticResource PhoneForegroundBrush}"
 	Orientation="Portrait"
-	shell:SystemTray.IsVisible="false">
+	shell:SystemTray.IsVisible="false" Loaded="PhoneApplicationPage_Loaded">
 
 	<phone:PhoneApplicationPage.Resources>
 		<DataTemplate x:Key="ClusterTemplate">
@@ -28,7 +28,7 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot">
 		<Grid.Background>
-			<ImageBrush Stretch="Fill" ImageSource="Ushahidi_Background.design_II.png"/>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/Ushahidi_Background.design_II.png"/>
 		</Grid.Background>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" MinHeight="98"/>

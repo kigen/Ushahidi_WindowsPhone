@@ -21,7 +21,7 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot">
 		<Grid.Background>
-			<ImageBrush Stretch="Fill" ImageSource="Ushahidi_Background.design_II.png"/>
+			<ImageBrush Stretch="Fill" ImageSource="Assets/Ushahidi_Background.design_II.png"/>
 		</Grid.Background>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" MinHeight="99"/>
@@ -32,11 +32,11 @@
 		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,82"/>
 		<StackPanel x:Name="ContentPanel" Margin="12,0" Grid.Row="1">
 			<StackPanel Orientation="Horizontal" Margin="0,8,8,0">
-				<Rectangle Margin="0" Width="42" Height="42" VerticalAlignment="Bottom">
-					<Rectangle.Fill>
-						<ImageBrush Stretch="Uniform" ImageSource="appbar.information.circle.png"/>
-					</Rectangle.Fill>
-				</Rectangle>
+				<Rectangle Margin="12,0,0,0" Width="42" Height="42" VerticalAlignment="Bottom">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Ushahidi;component/Images/appbar.settings.png" />
+                    </Rectangle.Fill>
+                </Rectangle>
 				<TextBlock Margin="0" TextWrapping="Wrap" Width="335" VerticalAlignment="Bottom" FontSize="32" Text="General Settings" FontWeight="Bold">
 					<TextBlock.Foreground>
 						<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
@@ -54,7 +54,7 @@
 					<SolidColorBrush Color="{StaticResource DarkColor}"/>
 				</TextBlock.Foreground>
 			</TextBlock>
-			<toolkit:ListPicker x:Name="ReportLimitListPicker" Margin="12,0" BorderThickness="1">
+			<toolkit:ListPicker x:Name="ReportLimitListPicker" Margin="12,0" BorderThickness="1" SelectionChanged="ReportLimitListPicker_SelectionChanged">
 				<toolkit:ListPicker.BorderBrush>
 					<SolidColorBrush Color="{StaticResource GreyColor}"/>
 				</toolkit:ListPicker.BorderBrush>
@@ -79,7 +79,7 @@
 					<SolidColorBrush Color="{StaticResource DarkColor}"/>
 				</TextBlock.Foreground>
 			</TextBlock>
-			<toolkit:ListPicker x:Name="DistanceLimitListPicker" Margin="12,0" BorderThickness="1">
+			<toolkit:ListPicker x:Name="DistanceLimitListPicker" Margin="12,0" BorderThickness="1" SelectionChanged="DistanceLimitListPicker_SelectionChanged">
 				<toolkit:ListPicker.BorderBrush>
 					<SolidColorBrush Color="{StaticResource GreyColor}"/>
 				</toolkit:ListPicker.BorderBrush>
@@ -93,7 +93,7 @@
 						<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
 					</ListBoxItem.Foreground>
 				</ListBoxItem>
-				<ListBoxItem Content="5000 Km (Plus)">
+				<ListBoxItem Content="5000Km (Plus)">
 					<ListBoxItem.Foreground>
 						<SolidColorBrush Color="{StaticResource RedMaroonColor}"/>
 					</ListBoxItem.Foreground>
