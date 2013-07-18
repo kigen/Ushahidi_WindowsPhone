@@ -172,6 +172,11 @@ namespace Ushahidi
 
         }
 
+        private void CreateReportButton_Click(object sender, System.EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/CreateReport.xaml", UriKind.Relative));
+        }
+
 
     }
 }

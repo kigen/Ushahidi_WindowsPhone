@@ -42,7 +42,9 @@
 	</phone:PhoneApplicationPage.Foreground>
 
 		<phone:PhoneApplicationPage.ApplicationBar>
-		<shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.48" ForegroundColor="{StaticResource WhiteColor}" BackgroundColor="{StaticResource DarkColor}"/>
+		<shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Opacity="0.48" ForegroundColor="{StaticResource WhiteColor}" BackgroundColor="{StaticResource DarkColor}">
+			<shell:ApplicationBarIconButton x:Name="CreateReportButton" IconUri="/icons/appbar.add.rest.png" Text="Create" Click="CreateReportButton_Click"/>
+		</shell:ApplicationBar>
 	</phone:PhoneApplicationPage.ApplicationBar>
 
 	<!--LayoutRoot is the root grid where all page content is placed-->

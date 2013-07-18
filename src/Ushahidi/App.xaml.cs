@@ -11,6 +11,7 @@ namespace Ushahidi
 {
     public partial class App : Application
     {
+        
         public bool isFirstTime { get; set; }
 
         public static readonly string DBLocation = "Data Source=isostore:/LocalDatabase.sdf";

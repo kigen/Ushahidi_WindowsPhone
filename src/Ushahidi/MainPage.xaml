@@ -86,7 +86,7 @@
 					</StackPanel>
 				</StackPanel>
 			</controls:PivotItem>
-			<controls:PivotItem Header="Deployments">
+			<controls:PivotItem Header="Deployments" Name="ListPivotItem"  Loaded="ListPivotItem_Loaded">
 				<StackPanel x:Name="ContentHolder" Height="600" Width="456">
 					<TextBox TextWrapping="NoWrap" AcceptsReturn="True" InputScope="Search" BorderThickness="1" FontSize="24" Name="SearchTextBlock" KeyUp="SearchTextBlock_KeyUp" Visibility="Collapsed">
 						<TextBox.Foreground>

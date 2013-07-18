@@ -10,6 +10,7 @@ using System.Device.Location;
 using Ushahidi.Maps;
 using System.Windows.Controls;
 using System.Threading;
+using System.ComponentModel;
 
 namespace Ushahidi
 {
@@ -21,6 +22,7 @@ namespace Ushahidi
         ApplicationBarIconButton refreshButton;
         bool LoadedOnline = false;
         bool NaivgationNew = false;
+        BackgroundWorker background;
 
 
         App app;
@@ -44,7 +46,8 @@ namespace Ushahidi
             addButton.IconUri = new Uri("/icons/appbar.add.rest.png", UriKind.Relative);
             addButton.Text = "Add";
             addButton.Click += new EventHandler(addButton_Click);
-
+            background = new BackgroundWorker();
+            background.DoWork += new DoWorkEventHandler(background_DoWork);
 
             ApplicationBar.Buttons.Add(addButton);
             ApplicationBar.Buttons.Add(mapViewButton);
@@ -52,6 +55,7 @@ namespace Ushahidi
 
 
         }
+
 
         void refreshButton_Click(object sender, EventArgs e)
         {
@@ -83,8 +87,7 @@ namespace Ushahidi
                
              LoadFromDB();           
 
-                //Load categories..
-             DownloadCategories();
+          
             }
             NaivgationNew = false;
         }
@@ -230,20 +233,7 @@ namespace Ushahidi
             if (MainPivot.SelectedIndex == 1)
             {
 
-                ApplicationBar.IsVisible = true;
-                if (!LoadedOnline)
-                {
-
-                    if (app.IsAvailable)
-                    {
-                        Dispatcher.BeginInvoke(() =>
-            {
-                GoOnline();
-            });
-
-                    }
-                    LoadedOnline = true;
-                }
+                ApplicationBar.IsVisible = true;               
 
             }
             else
@@ -295,6 +285,33 @@ namespace Ushahidi
                 SearchDeployments.DataDownloadCompleteWithError += new EventHandler<DownloadCompleteArgs>(SearchDeployments_DataDownloadCompleteWithError);
                 SearchDeployments.SearchDeployments(SearchTextBlock.Text);
                 ProgressBar.Visibility = System.Windows.Visibility.Visible;
+
+            }
+        }
+    
+
+        private void ListPivotItem_Loaded(object sender, RoutedEventArgs e)
+        {
+            background.RunWorkerAsync();
+         
+        }
+
+
+        void background_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!LoadedOnline)
+            {
+
+                if (app.IsAvailable)
+                {
+                    Dispatcher.BeginInvoke(() =>
+                    {
+                        GoOnline();
+                        DownloadCategories();
+                        LoadedOnline = true;
+                    });
+
+                }
 
             }
         }

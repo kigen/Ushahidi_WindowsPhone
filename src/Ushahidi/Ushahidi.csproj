@@ -79,6 +79,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateReport.xaml.cs">
+      <DependentUpon>CreateReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeploymentViewPage.xaml.cs">
       <DependentUpon>DeploymentViewPage.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
     <Page Include="AddDeployments.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CreateReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeploymentViewPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
