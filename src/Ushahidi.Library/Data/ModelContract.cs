@@ -216,5 +216,46 @@ namespace Ushahidi.Library.Data
     }
 
 #endregion
+    
+
+    public class UploadImage{
+
+        public string FileName {get;set;}
+        public string FileType {get;set;}
+        public byte[] Image {get;set;}
+    }
+
+
+    public class UploadReport : IncidentObj
+    {
+
+        List<UploadImage> _photos;
+        public List<UploadImage> Photos
+        {
+            get
+            {
+               return _photos;
+            }
+            set 
+            {                 
+                _photos = value;
+            }
+        }
+
+        public void addPhoto(UploadImage image){
+            _photos.Add(image);
+        }
+
+        public string CategoryList {
+            get;
+            set;
+        }
+
+       public DateTime IncidentDate { get; set; }
+
+       public Deployments Deployment { get; set; }
+
+    }
+
 
 }
